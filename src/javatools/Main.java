@@ -7,6 +7,10 @@ import org.apache.commons.io.FileUtils;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
+		GBK2UTF8();
+	}
+	
+	static void GBK2UTF8() {
 	    //GBK编码格式源码路径
 	    String srcDirPath = "E:\\workplan\\02 project\\lvyou\\src";
 	    //转为UTF-8编码格式源码路径
@@ -22,4 +26,5 @@ public class Main {
 	    System.out.print("utf8FilePath:" + utf8FilePath + " javaGbkFile:" + javaGbkFile + "\n");
 	    }
 	}
+
 }
