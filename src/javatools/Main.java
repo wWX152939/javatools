@@ -1,6 +1,7 @@
 package javatools;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Collection;
 
 import org.apache.commons.io.FileUtils;
@@ -22,7 +23,12 @@ public class Main {
 	    //UTF8格式文件路径	
 	    String utf8FilePath = utf8DirPath+javaGbkFile.getAbsolutePath().substring(srcDirPath.length());
 	    //使用GBK读取数据，然后用UTF-8写入数据
-	    FileUtils.writeLines(new File(utf8FilePath), "UTF-8", FileUtils.readLines(javaGbkFile, "GBK")); 
+	    try {
+			FileUtils.writeLines(new File(utf8FilePath), "UTF-8", FileUtils.readLines(javaGbkFile, "GBK"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 	    System.out.print("utf8FilePath:" + utf8FilePath + " javaGbkFile:" + javaGbkFile + "\n");
 	    }
 	}
