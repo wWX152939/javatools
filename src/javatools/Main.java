@@ -7,18 +7,19 @@ import org.apache.commons.io.FileUtils;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
-	    //GBK编码格式源码路径
-	    String srcDirPath = "E:\\JavaProject\\touchfuture_test\\src";
-	    //转为UTF-8编码格式源码路径
-	    String utf8DirPath = "E:\\UTF8\\src";
-	         
-	    //获取所有java文件
+	    //GBK缂栫爜鏍煎紡婧愮爜璺緞
+	    String srcDirPath = "E:\\workplan\\02 project\\lvyou\\src";
+	    //杞负UTF-8缂栫爜鏍煎紡婧愮爜璺緞
+	    String utf8DirPath = "E:\\workplan\\02 project\\test";
+	    utf8DirPath = srcDirPath;
+	    //鑾峰彇鎵�鏈塲ava鏂囦欢
 	    Collection<File> javaGbkFileCol =  FileUtils.listFiles(new File(srcDirPath), new String[]{"java"}, true);
 	    for (File javaGbkFile : javaGbkFileCol) {
-	    //UTF8格式文件路径
+	    //UTF8鏍煎紡鏂囦欢璺緞	
 	    String utf8FilePath = utf8DirPath+javaGbkFile.getAbsolutePath().substring(srcDirPath.length());
-	    //使用GBK读取数据，然后用UTF-8写入数据
-	    FileUtils.writeLines(new File(utf8FilePath), "UTF-8", FileUtils.readLines(javaGbkFile, "GBK"));     
+	    //浣跨敤GBK璇诲彇鏁版嵁锛岀劧鍚庣敤UTF-8鍐欏叆鏁版嵁
+	    FileUtils.writeLines(new File(utf8FilePath), "UTF-8", FileUtils.readLines(javaGbkFile, "GBK")); 
+	    System.out.print("utf8FilePath:" + utf8FilePath + " javaGbkFile:" + javaGbkFile + "\n");
 	    }
 	}
 }
